@@ -1,0 +1,24 @@
+//Initial API and implementation:
+//Francois Le Fevre
+
+entity Book
+entity Author {
+  name String required
+}
+
+relationship OneToMany {
+  Author{book} to Book{writer(name) required}
+}
+
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate * with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+//angularSuffix * with mySuffix

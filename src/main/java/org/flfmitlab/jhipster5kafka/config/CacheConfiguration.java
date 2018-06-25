@@ -41,6 +41,9 @@ public class CacheConfiguration {
             cm.createCache(org.flfmitlab.jhipster5kafka.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(org.flfmitlab.jhipster5kafka.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(org.flfmitlab.jhipster5kafka.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(org.flfmitlab.jhipster5kafka.domain.Book.class.getName(), jcacheConfiguration);
+            cm.createCache(org.flfmitlab.jhipster5kafka.domain.Author.class.getName(), jcacheConfiguration);
+            cm.createCache(org.flfmitlab.jhipster5kafka.domain.Author.class.getName() + ".books", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

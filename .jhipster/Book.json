@@ -1,0 +1,22 @@
+{
+    "name": "Book",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "writer",
+            "otherEntityName": "author",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20180625083641",
+    "entityTableName": "book",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
