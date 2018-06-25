@@ -2,6 +2,9 @@ package org.flfmitlab.jhipster5kafka.web.rest;
 
 import org.flfmitlab.jhipster5kafka.messaging.Greeting;
 import org.flfmitlab.jhipster5kafka.messaging.ProducerChannel;
+import org.flfmitlab.jhipster5kafka.service.impl.ConsumerServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +17,8 @@ import com.codahale.metrics.annotation.Timed;
 @RestController
 @RequestMapping("/api")
 public class ProducerResource {
+	
+	private final Logger log = LoggerFactory.getLogger(ProducerResource.class);
 
     private MessageChannel channel;
 
@@ -25,6 +30,7 @@ public class ProducerResource {
     @Timed
     public void produce(@PathVariable int count) {
         while(count > 0) {
+        	log.debug(count + " messages");
             channel.send(MessageBuilder.withPayload(new Greeting().setMessage("Hello world!: " + count)).build());
             count--;
         }
